@@ -51,7 +51,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CGE\TOGE.csproj">
+    <ProjectReference Include="..\TOGE\TOGE.csproj">
       <Project>{b516e6e3-1841-4c7b-bbc0-46fc3daa3cc8}</Project>
       <Name>TOGE</Name>
     </ProjectReference>

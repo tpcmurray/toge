@@ -1,7 +1,14 @@
-﻿namespace TOGE
+﻿using System.Collections.Generic;
+
+namespace TOGE
 {
     public class Location
     {
+        public Location()
+        {
+            Items = new Items();
+        }
+
         /// <summary>
         /// The 'Name' should finish the sentence "You are ..."
         /// </summary>
