@@ -28,8 +28,6 @@ namespace TOGE
                     World.WriteLine(_world.Player.Location.LookDescription);
 
                     _currentLocation = _world.Player.Location;
-
-                    DescribeDirections();
                 }
 
                 if (newGame)
@@ -38,16 +36,21 @@ namespace TOGE
                     newGame = false;
                 }
 
+                Console.WriteLine("-------------------------------------------------------------------------------");
+
                 // await command
                 ProcessInput(Console.ReadLine());
             }
+
+            World.WriteLine(_world.Outro);
+            Console.ReadKey();
         }
 
         private void ProcessInput(string command)
         {
             var input = command.ToLower().Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 
-            switch (command.ToLower().Split(' ')[0])
+            switch (input[0])
             {
                 #region movement
                 case "n":

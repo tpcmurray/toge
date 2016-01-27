@@ -29,6 +29,11 @@ namespace TOGE
         /// </summary>
         public string Introduction { get; set; }
 
+        /// <summary>
+        /// The text used when the game is over.
+        /// </summary>
+        public string Outro { get; set; }
+
         public Dictionary<string, Location> Locations { get; set; }
         public Items ItemStore { get; set; }
         public List<Action> Actions { get; set; }
