@@ -82,7 +82,9 @@ namespace OkayIAmABrush
                 LookDescription = "You are on the bridge. For the first time in your career, there are no people\r\n" +
                                   " here except ... the captain lies lifeless in the command chair, very badly\r\n" +
                                   " injured. A large chunk of his right shoulder is missing, and his right arm\r\n" +
-                                  " is severed. None of the consoles here appear to be working."
+                                  " is severed. Nothing here is lit up; maybe there's a power problem? Wait,\r\n" +
+                                  " the captain has a personal escape pod off his quarters. Maybe it's\r\n" +
+                                  " still there?"
             });
 
             world.Locations.Add("engineering", new Location
@@ -90,8 +92,9 @@ namespace OkayIAmABrush
                 Name = "in the engineering room.",
                 DistanceDescription = "the door to engineering.",
                 LookDescription = "With the red glow and bodies strewn around, this place is makes you queasy.\r\n" +
-                                  " You find a bulkhead that leads to the bridge, but a primary power coupler\r\n" +
-                                  " is missing. A dead engineer lays on a workstation below the bulkhead."
+                                  " You find a bulkhead with a power conduit inside that leads to the bridge,\r\n" +
+                                  " but a primary power coupler is missing. A dead engineer lays on a\r\n" +
+                                  " workstation below the bulkhead."
             });
 
             world.Locations.Add("captainsQuarters", new Location
@@ -123,7 +126,7 @@ namespace OkayIAmABrush
             world.Locations["bridge"].South = world.Locations["captainsQuarters"];
             world.Locations["bridge"].SouthIsBlockedText = "The door to the captain's quarters doesn't open even though you have the\r\n" +
                                                            " doctors ComBadge. You are fairly certain that should give you access.\r\n" +
-                                                           " Maybe the door, like the consoles in the bridge, isn't powered?";
+                                                           " Maybe the door, like the everything else on the bridge, isn't powered?";
 
             world.Locations["engineering"].South = world.Locations["bridge"];
 
@@ -296,7 +299,7 @@ namespace OkayIAmABrush
         {
             Name = "Coupler";
             CanBePickedUp = true;
-            LookDescription = "A power coupler. This can probably fix the power conduit to the bridge.";
+            LookDescription = "A power coupler. This can probably fix the power conduit in engineering.";
         }
 
         public override void Use(World world)
@@ -314,7 +317,7 @@ namespace OkayIAmABrush
                     "You are on the bridge. For the first time in your career, there are no people\r\n" +
                     " here except ... the captain lies lifeless in the command chair, very badly\r\n" +
                     " injured. A large chunk of his right shoulder is missing, and his right arm\r\n" +
-                    " is severed. The consoles are now lit up.";
+                    " is severed. The displays and consoles are now lit up.";
                 world.Locations["captainsQuarters"].Items.Get("door").LookDescription = "It's a regular automatic door, and is now responsive.";
             }
             else

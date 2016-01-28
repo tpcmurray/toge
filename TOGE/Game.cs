@@ -24,10 +24,11 @@ namespace TOGE
                 // see if we are in a new place
                 if (_world.Player.Location != _currentLocation)
                 {
-                    // we are in a new place, so describe it
-                    World.WriteLine(_world.Player.Location.LookDescription);
-
                     _currentLocation = _world.Player.Location;
+
+                    // we are in a new place, so describe it
+                    World.WriteLine(_currentLocation.LookDescription);
+                    DescribeDirections();
                 }
 
                 if (newGame)
@@ -48,6 +49,8 @@ namespace TOGE
 
         private void ProcessInput(string command)
         {
+            if (command.Trim().Length == 0) return;
+
             var input = command.ToLower().Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 
             switch (input[0])
@@ -157,6 +160,8 @@ namespace TOGE
                     break;
 
                 case "p":
+                case "take":
+                case "get":
                 case "pickup":
                     if (input.Length == 1)
                     {
